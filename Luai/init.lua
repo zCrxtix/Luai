@@ -1,8 +1,8 @@
-return function (source : string)
-	local tokens, error_ = require(script.Lexer).new(source):generate_tokens()
-	if tokens then
+return function (Source : string)
+	local Tokens, Error = require(script.Lexer).new(Source):generate_tokens()
+	if Tokens then
 		require(script.Parser).new(tokens):parse()
 	else
-		warn(error_)
+		warn(Error)
 	end
 end
